@@ -1,10 +1,8 @@
-# Exemples et exercices corrigés
+# Chapitre 1
 
-## Chapitre 1
+## Prolog, le chaînage-arrière
 
-### Prolog, le chaînage-arrière
-
-#### 1 L'inspecteur Maigret
+### 1. L'inspecteur Maigret
 
 L'inspecteur veut connaître les suspects qu'il doit interroger pour un certain nombre de faits : il tient un individu pour suspect dès qu'il était présent dans un lieu, un jour où un vol a été commis et s'il a pu voler la victime.
 
