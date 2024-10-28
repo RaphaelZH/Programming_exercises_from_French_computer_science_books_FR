@@ -22,7 +22,7 @@ suspect(X) :-
     present(X, L, J),
     vol(L, J, V),
     apuvoler(X, V).
-    
+
 apuvoler(X, _) :-
     sansargent(X).
 

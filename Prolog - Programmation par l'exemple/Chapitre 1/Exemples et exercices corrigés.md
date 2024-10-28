@@ -12,12 +12,12 @@ Il sait que Max est sans argent et qu'Eve est très jalouse de Marie. Il est att
 
 Écrire le programme Prolog qui, à la question $suspect(X)$, renverra toutes les réponses possibles et représenter l'arbre de recherche de Prolog.
 
-```prolog
+```Prolog
 suspect(X) :-
     present(X, L, J),
     vol(L, J, V),
     apuvoler(X, V).
-    
+
 apuvoler(X, _) :-
     sansargent(X).
 
@@ -50,7 +50,50 @@ Un jeu consiste à mettre trois pièces du même côté en en retournant simulta
 
 Voir [[F. Giannesini, H. Kanoui, R. Pasero, M. Van Caneghem, Prolog, InterÉditions, 1985]](../R%C3%A9f%C3%A9rences/1.%20Prolog,%20Inter%C3%89ditions,%201985.pdf)
 
-[A](../A/9212.pdf)
+```Prolog
+opp(pile, face).
+opp(face, pile).
+
+modif(X, Y1, Z1, X, Y2, Z2) :- 
+    opp(Y1, Y2), 
+    opp(Z1, Z2).
+
+modif(X1, Y, Z1, X2, Y, Z2) :- 
+    opp(X1, X2), 
+    opp(Z1, Z2).
+
+modif(X1, Y1, Z, X2, Y2, Z) :- 
+    opp(Y1, Y2), 
+    opp(X1, X2).
+
+jeu(X1, Y1, Z1) :- 
+    modif(X1, Y1, Z1, X2, Y2, Z2), 
+    modif(X2, Y2, Z2, X3, Y3, Z3), 
+    modif(X3, Y3, Z3, R, R, R), 
+    aff(X1, Y1, Z1), 
+    aff(X2, Y2, Z2), 
+    aff(X3, Y3, Z3), 
+    aff(R, R, R).
+
+aff(X, Y, Z) :- 
+    write(X), 
+    write(' '), 
+    write(Y), 
+    write(' '), 
+    write(Z), 
+    nl.
+
+/** <examples>
+
+?- jeu(pile, face, pile).
+pile face pile
+pile pile pile
+pile face pile
+face face face
+true .
+
+*/
+```
 
 
 
