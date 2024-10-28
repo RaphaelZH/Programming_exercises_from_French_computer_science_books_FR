@@ -13,7 +13,7 @@ attesté par ailleurs que Max était au bar mercredi, Éric au bar mardi et qu'E
 était à l'hippodrome lundi (on ne prend pas en compte la présence des victimes 
 comme possibilité qu'ils aient été aussi voleurs ce jour-là).
 
-Écrire le programme Prolog qui, à la question $suspect(X)$, renverra toutes les 
+Écrire le programme Prolog qui, à la question suspect(X), renverra toutes les 
 réponses possibles et représenter l'arbre de recherche de Prolog.
 
 */
@@ -44,6 +44,6 @@ present(eve, hipp, lundi).
 /** <examples>
 
 ?- suspect(X).
-% X = eve.
+X = eve.
 
 */

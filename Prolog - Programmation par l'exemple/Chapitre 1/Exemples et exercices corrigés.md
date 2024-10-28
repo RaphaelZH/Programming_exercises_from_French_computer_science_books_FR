@@ -39,7 +39,20 @@ present(eve, hipp, lundi).
 /** <examples>
 
 ?- suspect(X).
-% X = eve.
+X = eve.
 
 */
 ```
+
+### 2. Jeu des pièces
+
+Un jeu consiste à mettre trois pièces du même côté en en retournant simultanément, et ceci trois fois exactement. On devra demander par exemple jeu(pile, face, pile) et les trois modifications devront être affichées.
+
+Voir [[F. Giannesini, H. Kanoui, R. Pasero, M. Van Caneghem, Prolog, InterÉditions, 1985]](../R%C3%A9f%C3%A9rences/1.%20Prolog,%20Inter%C3%89ditions,%201985.pdf)
+
+[A](../A/9212.pdf)
+
+
+
+
+
