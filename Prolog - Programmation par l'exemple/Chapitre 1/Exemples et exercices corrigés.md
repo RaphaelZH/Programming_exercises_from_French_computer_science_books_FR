@@ -138,9 +138,7 @@ Qui consomme quoi ? Développer l'arbre de recherche.
 
 ```Prolog
 animal(X) :-
-    herbivore(X).
-
-animal(X) :-
+    herbivore(X);
     carnivore(X).
 
 herbivore(antilope).
