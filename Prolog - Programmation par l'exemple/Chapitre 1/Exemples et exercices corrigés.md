@@ -13,6 +13,8 @@ Il sait que Max est sans argent et qu'Eve est très jalouse de Marie. Il est att
 Écrire le programme Prolog qui, à la question $suspect(X)$, renverra toutes les réponses possibles et représenter l'arbre de recherche de Prolog.
 
 ```Prolog
+*/
+
 suspect(X) :-
     present(X, L, J),
     vol(L, J, V),
@@ -87,10 +89,41 @@ aff(X, Y, Z) :-
 
 ?- jeu(pile, face, pile).
 pile face pile
-pile pile pile
+pile pile face
 pile face pile
 face face face
-true .
+true ;
+pile face pile
+pile pile face
+face pile pile
+face face face
+true ;
+pile face pile
+face face face
+face pile pile
+face face face
+true ;
+pile face pile
+face face face
+pile face pile
+face face face
+true ;
+pile face pile
+face face face
+pile pile face
+face face face
+true ;
+pile face pile
+face pile pile
+pile pile face
+face face face
+true ;
+pile face pile
+face pile pile
+pile face pile
+face face face
+true ;
+false.
 
 */
 ```
@@ -102,5 +135,56 @@ true .
 Qui consomme quoi ? Développer l'arbre de recherche.
 
 [[J. L. Laurière *Intelligence artificielle, Tomes I et II*, Eyrolles 1986, 1987]](../R%C3%A9f%C3%A9rences/2.%20Intelligence%20artificielle,%20Tomes%20I%20et%20II.pdf).
+
+```Prolog
+animal(X) :-
+    herbivore(X).
+
+animal(X) :-
+    carnivore(X).
+
+herbivore(antilope).
+
+feroce(lion).
+
+carnivore(X) :-
+    feroce(X).
+
+mange(X, viande) :-
+    carnivore(X).
+
+mange(X, Y) :-
+    carnivore(X),
+    herbivore(Y).
+
+mange(X, herbe) :-
+    herbivore(X).
+
+boit(X, eau) :-
+    animal(X).
+
+consomme(X, Y) :-
+    mange(X, Y).
+
+consomme(X, Y) :-
+    boit(X, Y).
+
+/** <examples>
+
+?- consomme(X, Y).
+X = lion,
+Y = viande ;
+X = lion,
+Y = antilope ;
+X = antilope,
+Y = herbe ;
+X = antilope,
+Y = eau ;
+X = lion,
+Y = eau.
+
+*/
+```
+
 
 

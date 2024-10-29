@@ -45,9 +45,40 @@ aff(X, Y, Z) :-
 
 ?- jeu(pile, face, pile).
 pile face pile
-pile pile pile
+pile pile face
 pile face pile
 face face face
-true .
+true ;
+pile face pile
+pile pile face
+face pile pile
+face face face
+true ;
+pile face pile
+face face face
+face pile pile
+face face face
+true ;
+pile face pile
+face face face
+pile face pile
+face face face
+true ;
+pile face pile
+face face face
+pile pile face
+face face face
+true ;
+pile face pile
+face pile pile
+pile pile face
+face face face
+true ;
+pile face pile
+face pile pile
+pile face pile
+face face face
+true ;
+false.
 
 */

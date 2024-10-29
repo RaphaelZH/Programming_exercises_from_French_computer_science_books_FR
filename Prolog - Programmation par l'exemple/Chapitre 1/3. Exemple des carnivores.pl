@@ -47,6 +47,14 @@ consomme(X, Y) :-
 
 ?- consomme(X, Y).
 X = lion,
-Y = viande .
+Y = viande ;
+X = lion,
+Y = antilope ;
+X = antilope,
+Y = herbe ;
+X = antilope,
+Y = eau ;
+X = lion,
+Y = eau.
 
 */
