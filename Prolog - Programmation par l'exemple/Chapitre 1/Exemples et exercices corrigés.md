@@ -13,8 +13,6 @@ Il sait que Max est sans argent et qu'Eve est très jalouse de Marie. Il est att
 Écrire le programme Prolog qui, à la question $suspect(X)$, renverra toutes les réponses possibles et représenter l'arbre de recherche de Prolog.
 
 ```Prolog
-*/
-
 suspect(X) :-
     present(X, L, J),
     vol(L, J, V),
@@ -195,6 +193,13 @@ Y = eau.
 Étant donnée une relation notée $rel$ à $3$ arguments, définir la relation $pr$ « projection » de $rel$ sur les $2$ premiers arguments, puis la « sélection » $sr$ des objets dont les deux premiers arguments vérifient une propriété $prop$. Si $r$ et $s$ sont deux relations à deux arguments, définir leur « jointure » $jrs$ comme l'ensemble des triplets $(x, y, z)$ vérifiant $r(x, y)$ et $s(x, z)$, enfin, leur union, comme l'union des couples de $r$ et de $s$.
 
 ```Prolog
+% La projection d’une relation à trois arguments sur les deux premiers est 
+l’ensemble des couples (X, Y) tels qu’un triplet au moins vérifie la relation 
+rel.
+
+% C’est donc la définition mathématique aussi bien que celle utilisée en base de 
+données.
+
 pr(X, Y) :-
     rel(X, Y, _).
 
