@@ -48,7 +48,7 @@ X = eve.
 
 ### 2. Jeu des pièces
 
-Un jeu consiste à mettre trois pièces du même côté en en retournant simultanément, et ceci trois fois exactement. On devra demander par exemple jeu(pile, face, pile) et les trois modifications devront être affichées.
+Un jeu consiste à mettre trois pièces du même côté en en retournant simultanément, et ceci trois fois exactement. On devra demander par exemple $jeu(pile, face, pile)$ et les trois modifications devront être affichées.
 
 Voir [[F. Giannesini, H. Kanoui, R. Pasero, M. Van Caneghem, *Prolog*, InterÉditions, 1985]](../R%C3%A9f%C3%A9rences/1.%20Prolog,%20Inter%C3%89ditions,%201985.pdf).
 
@@ -56,33 +56,33 @@ Voir [[F. Giannesini, H. Kanoui, R. Pasero, M. Van Caneghem, *Prolog*, InterÉdi
 opp(pile, face).
 opp(face, pile).
 
-modif(X, Y1, Z1, X, Y2, Z2) :- 
-    opp(Y1, Y2), 
+modif(X, Y1, Z1, X, Y2, Z2) :-
+    opp(Y1, Y2),
     opp(Z1, Z2).
 
-modif(X1, Y, Z1, X2, Y, Z2) :- 
-    opp(X1, X2), 
+modif(X1, Y, Z1, X2, Y, Z2) :-
+    opp(X1, X2),
     opp(Z1, Z2).
 
-modif(X1, Y1, Z, X2, Y2, Z) :- 
-    opp(Y1, Y2), 
+modif(X1, Y1, Z, X2, Y2, Z) :-
+    opp(Y1, Y2),
     opp(X1, X2).
 
-jeu(X1, Y1, Z1) :- 
-    modif(X1, Y1, Z1, X2, Y2, Z2), 
-    modif(X2, Y2, Z2, X3, Y3, Z3), 
-    modif(X3, Y3, Z3, R, R, R), 
-    aff(X1, Y1, Z1), 
-    aff(X2, Y2, Z2), 
-    aff(X3, Y3, Z3), 
+jeu(X1, Y1, Z1) :-
+    modif(X1, Y1, Z1, X2, Y2, Z2),
+    modif(X2, Y2, Z2, X3, Y3, Z3),
+    modif(X3, Y3, Z3, R, R, R),
+    aff(X1, Y1, Z1),
+    aff(X2, Y2, Z2),
+    aff(X3, Y3, Z3),
     aff(R, R, R).
 
-aff(X, Y, Z) :- 
-    write(X), 
-    write(' '), 
-    write(Y), 
-    write(' '), 
-    write(Z), 
+aff(X, Y, Z) :-
+    write(X),
+    write(' '),
+    write(Y),
+    write(' '),
+    write(Z),
     nl.
 
 /** <examples>
@@ -137,6 +137,12 @@ Qui consomme quoi ? Développer l'arbre de recherche.
 [[J. L. Laurière *Intelligence artificielle, Tomes I et II*, Eyrolles 1986, 1987]](../R%C3%A9f%C3%A9rences/2.%20Intelligence%20artificielle,%20Tomes%20I%20et%20II.pdf).
 
 ```Prolog
+% animal(X) :-
+%     herbivore(X).
+
+% animal(X) :-
+%     carnivore(X).
+
 animal(X) :-
     herbivore(X);
     carnivore(X).
@@ -182,6 +188,29 @@ X = lion,
 Y = eau.
 
 */
+```
+
+### 4. Opérations sur une base de données
+
+Étant donnée une relation notée $rel$ à $3$ arguments, définir la relation $pr$ « projection » de $rel$ sur les $2$ premiers arguments, puis la « sélection » $sr$ des objets dont les deux premiers arguments vérifient une propriété $prop$. Si $r$ et $s$ sont deux relations à deux arguments, définir leur « jointure » $jrs$ comme l'ensemble des triplets $(x, y, z)$ vérifiant $r(x, y)$ et $s(x, z)$, enfin, leur union, comme l'union des couples de $r$ et de $s$.
+
+```Prolog
+pr(X, Y) :-
+    rel(X, Y, _).
+
+sr(X, Y, Z) :-
+    rel(X, Y, Z),
+    prop(X, Y).
+
+jrs(X, Y, Z) :-
+    r(X, Y),
+    s(X, Z).
+
+urs(X, Y) :-
+    r(X, Y).
+
+urs(X, Y) :-
+    s(X, Y).
 ```
 
 

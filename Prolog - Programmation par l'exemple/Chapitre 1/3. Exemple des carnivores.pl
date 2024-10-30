@@ -11,6 +11,12 @@ Qui consomme quoi ? Développer l'arbre de recherche.
 
 */
 
+% animal(X) :-
+%     herbivore(X).
+
+% animal(X) :-
+%     carnivore(X).
+
 animal(X) :-
     herbivore(X);
     carnivore(X).
