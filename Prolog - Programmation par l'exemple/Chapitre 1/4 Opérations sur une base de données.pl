@@ -10,11 +10,11 @@ union, comme l'union des couples de r et de s.
 */
 
 % La projection d’une relation à trois arguments sur les deux premiers est 
-l’ensemble des couples (X, Y) tels qu’un triplet au moins vérifie la relation 
-rel.
+% l’ensemble des couples (X, Y) tels qu’un triplet au moins vérifie la relation 
+% rel.
 
 % C’est donc la définition mathématique aussi bien que celle utilisée en base de 
-données.
+% données.
 
 pr(X, Y) :-
     rel(X, Y, _).
