@@ -17,27 +17,16 @@ parent(P, E) :-
     pere(P, E);
     mere(P, E).
 
-ancetre(A, D) :-
-    parent(A, D).
-
-ancetre(A, D) :-
-    parent(A, D),
-    ancetre(A, D).
-
 homme(H) :-
     pere(H, _).
 
+homme(ymer).
+
+%pere(ymer, G) :-
+    %geant(G).
+
 pere(niffelham, ymer).
 pere(niffelham, audumbla).
-
-mere(muspelheim, ymer).
-mere(muspelheim, audumbla).
-
-homme(ymer).
-ancetre(ymer, G) :-
-    geant(G).
-
-mere(audumbla, bure).
 
 pere(bure, bor).
 
@@ -45,23 +34,41 @@ pere(bor, odin).
 pere(bor, vil).
 pere(bor, ve).
 
-geant(bestla).
-mere(bestla, odin).
-mere(bestla, vil).
-mere(bestla, ve).
-
 pere(odin, thor).
 pere(odin, balder).
 pere(odin, brage).
 pere(odin, sentinelle).
+
+pere(thor, mod).
+pere(thor, magni).
+
+mere(muspelheim, ymer).
+mere(muspelheim, audumbla).
+
+mere(audumbla, bure).
+
+mere(bestla, odin).
+mere(bestla, vil).
+mere(bestla, ve).
 
 mere(frigga, thor).
 mere(frigga, balder).
 mere(frigga, brage).
 mere(frigga, sentinelle).
 
-pere(thor, mod).
-pere(thor, magni).
+
+
+
+
+
+
+
+
+
+%geant(bestla).
+
+
+
 
 oncle(O, N) :-
     parent(P, O),
