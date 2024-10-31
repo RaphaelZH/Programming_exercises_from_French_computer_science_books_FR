@@ -21,9 +21,8 @@ homme(H) :-
     pere(H, _).
 
 homme(ymer).
-
-%pere(ymer, G) :-
-    %geant(G).
+homme(vil).
+homme(ve).
 
 pere(niffelham, ymer).
 pere(niffelham, audumbla).
@@ -56,25 +55,24 @@ mere(frigga, balder).
 mere(frigga, brage).
 mere(frigga, sentinelle).
 
+geant(bestla).
 
+ancetre(P, E) :-
+    parent(P, E).
 
+ancetre(A, D) :-
+    parent(A, E),
+    ancetre(E, D).
 
-
-
-
-
-
-
-%geant(bestla).
-
-
-
+ancetre(ymer, G) :-
+    geant(G).
 
 oncle(O, N) :-
     parent(P, O),
     homme(O),
     parent(P, E),
-    parent(E, N).
+    parent(E, N),
+    not(O == E).
 
 
 
