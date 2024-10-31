@@ -15,7 +15,6 @@ union, comme l'union des couples de r et de s.
 
 % C’est donc la définition mathématique aussi bien que celle utilisée en base de 
 % données.
-
 pr(X, Y) :-
     rel(X, Y, _).
 

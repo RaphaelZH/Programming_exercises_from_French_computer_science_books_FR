@@ -4,12 +4,13 @@ Au commencement était Ginungap ou le chaos, au nord était l’amas de glaces
 Niffelheim, et au sud le Muspelheim embrasé. De ces deux contraires naquirent 
 Ymer, ancêtre de tous les géants, et la vache Audumbla, qui engendra Bure père 
 de Bôr. Ce dernier épousa la géante Bestla, qui le rendit père d’Odin (Wotan), 
-de Vil et de Vé. Odin tua Ymer, dont le sang provoqua le fameux déluge, et, 
-grâce à Frigga, engendra Thor (la guerre), Balder (la lumière), Braga (la 
-sagesse), Heimdal (sentinelle). Thor eut deux fils Mod (le courage) et Magni (la 
-force). Compléter éventuellement en introduisant les Valkyries, Hilda, Mista, 
-Rota, des Elfes, Trolls et autres Nornes, puis faire l’arbre généalogique, et 
-définir des relations diverses, telles qu’oncle, grand-oncle, cousin, etc.
+de Vil et de Vé. Odin tua Ymer, dont le sang provoqua le fameux déluge, et grâce 
+à Frigga, engendra Thor (la guerre), Balder (la lumière), Braga (la sagesse), 
+Heimdal (sentinelle). Thor eut deux fils Mod (le courage) et Magni (la force).
+
+Compléter éventuellement en introduisant les Valkyries, Hilda, Mista, Rota, des 
+Elfes, Trolls et autres Nornes, puis faire l’arbre généalogique, et définir des 
+relations diverses, telles qu’oncle, grand-oncle, cousin, etc.
 
 */
 
@@ -61,8 +62,34 @@ ancetre(P, E) :-
     parent(P, E).
 
 ancetre(A, D) :-
+    var(A),
     parent(A, E),
-    ancetre(E, D).
+    write("parent("),
+    write(A),
+    write(", "),
+    write(E),
+    write(")"),
+    nl,
+    ancetre(E, D),
+    write("ancetre("),
+    write(E),
+    write(", "),
+    write(D),
+    write(")"),
+    nl,
+    nl.
+
+
+/*
+ * 
+ fact(N,M):- 
+    N>0,              % 1
+    M is M1 * N,      % 2
+    fact(N - 1, M1).  % 3
+ 
+ */
+
+
 
 ancetre(ymer, G) :-
     geant(G).
@@ -71,11 +98,14 @@ oncle(O, N) :-
     parent(P, O),
     homme(O),
     parent(P, E),
-    parent(E, N),
-    not(O == E).
+    parent(E, N).
 
 
 
 /** <examples>
+
+oncle(O, bure).
+
+ancetre(A, mod).
 
 */
