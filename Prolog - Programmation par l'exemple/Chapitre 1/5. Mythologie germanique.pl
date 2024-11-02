@@ -87,11 +87,23 @@ ancetre(A, D) :-
     
     parent(A, E),
     
-    write("parent("),
+    
+    write("parent-2("),
     write(A),
     write(", "),
     write(E),
     write(")"),
+    nl,
+    
+    %!,
+    
+    ancetre(E, D),
+    write("ancetre("),
+    write(E),
+    write(", "),
+    write(D),
+    write(")"),
+    nl,
     nl.
 
 
