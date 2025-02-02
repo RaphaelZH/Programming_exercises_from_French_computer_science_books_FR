@@ -1,7 +1,7 @@
 /* 2. Jeu des pièces
 
 Un jeu consiste à mettre trois pièces du même côté en en retournant 
-simultanément, et ceci trois fois exactement. On devra demander par exemple 
+simultanément, et ceci trois fois exactement. On devra demander, par exemple, 
 jeu(pile, face, pile) et les trois modifications devront être affichées.
 
 Voir [F. Giannesini, H. Kanoui, R. Pasero, M. Van Caneghem, Prolog, 

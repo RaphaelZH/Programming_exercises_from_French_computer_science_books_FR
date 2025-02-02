@@ -67,44 +67,47 @@ ancetre(A, D) :-
     
     parent(A, E),
     
-    write("parent("),
+    write("parent-----1("),
     write(A),
     write(", "),
     write(E),
     write(")"),
     nl,
-    
+
     ancetre(E, D),
-    write("ancetre("),
+    write("ancetre---1("),
     write(E),
     write(", "),
     write(D),
     write(")"),
     nl,
-    nl;
-    
+    nl,
+    !;
+
     nonvar(A),
+    
     
     parent(A, E),
     
-    
-    write("parent-2("),
+    write("parent-----------2("),
     write(A),
     write(", "),
     write(E),
     write(")"),
     nl,
-    
     %!,
     
+    
+    
     ancetre(E, D),
-    write("ancetre("),
+    write("ancetre-----2("),
     write(E),
     write(", "),
     write(D),
     write(")"),
     nl,
     nl.
+
 
 
 /*
