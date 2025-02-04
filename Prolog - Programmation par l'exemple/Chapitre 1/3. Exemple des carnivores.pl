@@ -11,12 +11,7 @@ Qui consomme quoi ? Développer l'arbre de recherche.
 
 */
 
-% animal(X) :-
-%     herbivore(X).
-
-% animal(X) :-
-%     carnivore(X).
-
+% Remarque, grâce au point-virgule, la clause résume deux règles.
 animal(X) :-
     herbivore(X);
     carnivore(X).
@@ -42,9 +37,7 @@ boit(X, eau) :-
     animal(X).
 
 consomme(X, Y) :-
-    mange(X, Y).
-
-consomme(X, Y) :-
+    mange(X, Y);
     boit(X, Y).
 
 /** <examples>

@@ -130,17 +130,12 @@ false.
 
 Écrire les clauses Prolog correspondant au fait que les animaux sont herbivores ou carnivores, l'antilope est un herbivore, le lion est féroce et d'ailleurs, tous les animaux féroces sont des carnivores. Les carnivores mangent de la viande et des herbivores, lesquels mangent de l'herbe. Tous boivent de l'eau.
 
-Qui consomme quoi ? Développer l'arbre de recherche.
+Qui consomme quoi ? Développer l'arbre de recherche.
 
 [[J. L. Laurière *Intelligence artificielle, Tomes I et II*, Eyrolles 1986, 1987]](../R%C3%A9f%C3%A9rences/2.%20Intelligence%20artificielle,%20Tomes%20I%20et%20II.pdf).
 
 ```Prolog
-% animal(X) :-
-%     herbivore(X).
-
-% animal(X) :-
-%     carnivore(X).
-
+% Remarque, grâce au point-virgule, la clause résume deux règles.
 animal(X) :-
     herbivore(X);
     carnivore(X).
@@ -166,9 +161,7 @@ boit(X, eau) :-
     animal(X).
 
 consomme(X, Y) :-
-    mange(X, Y).
-
-consomme(X, Y) :-
+    mange(X, Y);
     boit(X, Y).
 
 /** <examples>
@@ -190,7 +183,7 @@ Y = eau.
 
 ### 4. Opérations sur une base de données
 
-Étant donnée une relation notée $rel$ à $3$ arguments, définir la relation $pr$ « projection » de $rel$ sur les $2$ premiers arguments, puis la « sélection » $sr$ des objets dont les deux premiers arguments vérifient une propriété $prop$. Si $r$ et $s$ sont deux relations à deux arguments, définir leur « jointure » $jrs$ comme l'ensemble des triplets $(x, y, z)$ vérifiant $r(x, y)$ et $s(x, z)$, enfin, leur union, comme l'union des couples de $r$ et de $s$.
+Étant donnée une relation notée $rel$ à $3$ arguments, définir la relation $pr$ « projection » de $rel$ sur les $2$ premiers arguments, puis la « sélection » $sr$ des objets dont les deux premiers arguments vérifient une propriété $prop$. Si $r$ et $s$ sont deux relations à deux arguments, définir leur « jointure » $jrs$ comme l'ensemble des triplets $(x, y, z)$ vérifiant $r(x, y)$ et $s(x, z)$, enfin, leur union, comme l'union des couples de $r$ et de $s$.
 
 ```Prolog
 % La projection d’une relation à trois arguments sur les deux premiers est 
@@ -228,10 +221,9 @@ Compléter éventuellement en introduisant les Valkyries, Hilda, Mista, Rota, de
 
 ### 6. Rencontres
 
-Eve est une petite femme blonde qui désire rencontrer un homme, Irma est une brune mesurant 1m55 favorable à tout homme qui veut bien d’elle. Julie la rousse mesure 1m65 et cherche un homme plus grand qu’elle. Carmela est une blonde de 
-1m59 qui ne sait pas ce qu’elle veut.
+Eve est une petite femme blonde qui désire rencontrer un homme, Irma est une brune mesurant 1m55 favorable à tout homme qui veut bien d’elle. Julie la rousse mesure 1m65 et cherche un homme plus grand qu’elle. Carmela est une blonde de 1m59 qui ne sait pas ce qu’elle veut.
 
-Luc fait 1m70, est très attiré par une rousse, mais ne sait plus son prénom. Max adore les petites femmes brunes. Marc mesure 1m90 et aimerait aussi rencontrer une brune, Hector cherche une petite blonde. En admettant que $petit$ signifie moins de 1m60, peut-on les aider ?
+Luc fait 1m70, est très attiré par une rousse, mais ne sait plus son prénom. Max adore les petites femmes brunes. Marc mesure 1m90 et aimerait aussi rencontrer une brune, Hector cherche une petite blonde. En admettant que $petit$ signifie moins de 1m60, peut-on les aider ?
 
 
 
