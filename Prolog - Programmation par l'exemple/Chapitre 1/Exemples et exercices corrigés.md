@@ -135,7 +135,9 @@ Qui consomme quoi ? Développer l'arbre de recherche.
 [[J. L. Laurière *Intelligence artificielle, Tomes I et II*, Eyrolles 1986, 1987]](../R%C3%A9f%C3%A9rences/2.%20Intelligence%20artificielle,%20Tomes%20I%20et%20II.pdf).
 
 ```Prolog
-% Remarque, grâce au point-virgule, la clause résume deux règles.
+% Remarque, grâce au point-virgule, les clauses résument plusieurs règles.
+% ------------------------------------------------------------------------------
+
 animal(X) :-
     herbivore(X);
     carnivore(X).
@@ -189,9 +191,10 @@ Y = eau.
 % La projection d’une relation à trois arguments sur les deux premiers est 
 % l’ensemble des couples (X, Y) tels qu’un triplet au moins vérifie la relation 
 % rel.
-
 % C’est donc la définition mathématique aussi bien que celle utilisée en base de 
 % données.
+% ------------------------------------------------------------------------------
+
 pr(X, Y) :-
     rel(X, Y, _).
 
