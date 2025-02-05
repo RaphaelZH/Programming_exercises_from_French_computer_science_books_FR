@@ -12,18 +12,76 @@ moins de 1m60, peut-on les aider ?
 
 */
 
-parent(P, E) :-
-    pere(P, E);
-    mere(P, E).
+%
+%
+%
 
+femme(eve).
+femme(irma).
+femme(julie).
+femme(carmela).
 
+homme(luc).
+homme(max).
+homme(marc).
+homme(hector).
+
+petit(X) :-
+    taille(X, T),
+    T < 160.
+
+petit(eve).
+
+taille(irma, 155).
+taille(julie, 165).
+taille(carmela, 159).
+taille(luc, 170).
+taille(marc, 190).
+
+cheveux(eve, blond).
+cheveux(irma, brun).
+cheveux(julie, roux).
+cheveux(carmela, blond).
+
+voudrait(eve, H) :-
+    homme(H).
+
+voudrait(irma, H) :-
+    homme(H),
+    voudrait(H, irma).
+
+voudrait(julie, H) :-
+    taille(julie, TJ),
+    homme(H),
+    taille(H, TH),
+    TJ < TH.
+
+voudrait(luc, F) :-
+    femme(F),
+    cheveux(F, roux).
+
+voudrait(max, F) :-
+    femme(F),
+    petit(F),
+    cheveux(F, brun).
+
+voudrait(marc, F) :-
+    femme(F),
+    cheveux(F, brun).
+
+voudrait(hector, F) :-
+    femme(F),
+    petit(F),
+    cheveux(F, blond).
+
+possible(H, F) :-
+    homme(H),
+    voudrait(H, F),
+    voudrait(F, H).
 
 
 
 /** <examples>
 
-oncle(O, bure).
-
-ancetre(A, mod).
 
 */
