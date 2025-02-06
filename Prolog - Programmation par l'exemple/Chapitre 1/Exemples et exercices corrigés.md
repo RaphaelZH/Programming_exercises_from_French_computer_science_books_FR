@@ -135,9 +135,7 @@ Qui consomme quoi ? Développer l'arbre de recherche.
 [[J. L. Laurière *Intelligence artificielle, Tomes I et II*, Eyrolles 1986, 1987]](../R%C3%A9f%C3%A9rences/2.%20Intelligence%20artificielle,%20Tomes%20I%20et%20II.pdf).
 
 ```Prolog
-% Remarque, grâce au point-virgule, les clauses résument plusieurs règles.
-% ------------------------------------------------------------------------------
-
+% Remarque, la clause ci-dessous résume deux règles grâce au point-virgule.
 animal(X) :-
     herbivore(X);
     carnivore(X).
@@ -228,10 +226,88 @@ Eve est une petite femme blonde qui désire rencontrer un homme, Irma est une br
 
 Luc fait 1m70, est très attiré par une rousse, mais ne sait plus son prénom. Max adore les petites femmes brunes. Marc mesure 1m90 et aimerait aussi rencontrer une brune, Hector cherche une petite blonde. En admettant que $petit$ signifie moins de 1m60, peut-on les aider ?
 
+```Prolog
+femme(eve).
+femme(irma).
+femme(julie).
+femme(carmela).
 
+homme(luc).
+homme(max).
+homme(marc).
+homme(hector).
 
+petit(X) :-
+    taille(X, T),
+    T < 160.
 
+petit(eve).
 
+taille(irma, 155).
+taille(julie, 165).
+taille(carmela, 159).
+taille(luc, 170).
+taille(marc, 190).
+
+cheveux(eve, blond).
+cheveux(irma, brun).
+cheveux(julie, roux).
+cheveux(carmela, blond).
+
+voudrait(eve, H) :-
+    homme(H).
+
+voudrait(irma, H) :-
+    homme(H),
+    voudrait(H, irma).
+
+voudrait(julie, H) :-
+    taille(julie, TJ),
+    homme(H),
+    taille(H, TH),
+    TJ < TH.
+
+voudrait(luc, F) :-
+    femme(F),
+    cheveux(F, roux).
+
+voudrait(max, F) :-
+    femme(F),
+    petit(F),
+    cheveux(F, brun).
+
+voudrait(marc, F) :-
+    femme(F),
+    cheveux(F, brun).
+
+voudrait(hector, F) :-
+    femme(F),
+    petit(F),
+    cheveux(F, blond).
+
+% Le prédicat « possible » est construit comme traduisant deux désirs 
+% compatibles, il faut éviter que la recherche de Prolog tourne en rond, 
+% simplement en précisant le sexe des arguments.
+possible(H, F) :-
+    homme(H),
+    voudrait(H, F),
+    voudrait(F, H).
+
+/** <examples>
+
+?- possible(H, F).
+H = luc,
+F = julie ;
+H = max,
+F = irma ;
+H = marc,
+F = irma ;
+H = hector,
+F = eve ;
+false.
+
+*/
+```
 
 
 

@@ -11,9 +11,7 @@ Qui consomme quoi ? Développer l'arbre de recherche.
 
 */
 
-% Remarque, grâce au point-virgule, les clauses résument plusieurs règles.
-% ------------------------------------------------------------------------------
-
+% Remarque, la clause ci-dessous résume deux règles grâce au point-virgule.
 animal(X) :-
     herbivore(X);
     carnivore(X).
