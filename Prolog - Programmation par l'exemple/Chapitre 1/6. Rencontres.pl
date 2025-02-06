@@ -12,10 +12,6 @@ moins de 1m60, peut-on les aider ?
 
 */
 
-%
-%
-%
-
 femme(eve).
 femme(irma).
 femme(julie).
@@ -74,14 +70,25 @@ voudrait(hector, F) :-
     petit(F),
     cheveux(F, blond).
 
+% Le prédicat « possible » est construit comme traduisant deux désirs 
+% compatibles, il faut éviter que la recherche de Prolog tourne en rond, 
+% simplement en précisant le sexe des arguments.
 possible(H, F) :-
     homme(H),
     voudrait(H, F),
     voudrait(F, H).
 
-
-
 /** <examples>
 
+?- possible(H, F).
+H = luc,
+F = julie ;
+H = max,
+F = irma ;
+H = marc,
+F = irma ;
+H = hector,
+F = eve ;
+false.
 
 */
