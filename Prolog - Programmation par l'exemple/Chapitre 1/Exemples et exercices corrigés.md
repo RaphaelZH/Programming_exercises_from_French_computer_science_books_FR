@@ -223,9 +223,9 @@ Compléter éventuellement en introduisant les Valkyries, Hilda, Mista, Rota, de
 
 ### 6. Rencontres
 
-Eve est une petite femme blonde qui désire rencontrer un homme, Irma est une brune mesurant $1$m$55$ favorable à tout homme qui veut bien d’elle. Julie la rousse mesure $1$m$65$ et cherche un homme plus grand qu’elle. Carmela est une blonde de $1$m$59$ qui ne sait pas ce qu’elle veut.
+Eve est une petite femme blonde qui désire rencontrer un homme, Irma est une brune mesurant $1$ m $55$ favorable à tout homme qui veut bien d’elle. Julie la rousse mesure $1$ m $65$ et cherche un homme plus grand qu’elle. Carmela est une blonde de $1$ m $59$ qui ne sait pas ce qu’elle veut.
 
-Luc fait $1$m$70$, est très attiré par une rousse, mais ne sait plus son prénom. Max adore les petites femmes brunes. Marc mesure $1$m$90$ et aimerait aussi rencontrer une brune, Hector cherche une petite blonde. En admettant que $petit$ signifie moins de $1$m$60$, peut-on les aider ?
+Luc fait $1$ m $70$, est très attiré par une rousse, mais ne sait plus son prénom. Max adore les petites femmes brunes. Marc mesure $1$ m $90$ et aimerait aussi rencontrer une brune, Hector cherche une petite blonde. En admettant que $petit$ signifie moins de $1$ m $60$, peut-on les aider ?
 
 ```Prolog
 femme(eve).
@@ -340,6 +340,49 @@ false.
 
 */
 ```
+
+### 8. PGCD de deux entiers
+
+L’algorithme d’Euclide peut se faire par divisions successives ou, ce qui revient au même, par soustractions successives entre le plus grand et le plus petit, jusqu’à obtenir deux entiers identiques.
+
+```Prolog
+% Le PGCD de deux nombres identiques est lui-même, sinon, dans l’hypothèse où 
+% X < Y, c’est le même que celui du plus petit X avec la différence des deux, et 
+% la troisième clause renvoyant à ce cas.
+
+% Ainsi, par soustractions successives, on peut montrer que cet algorithme 
+% aboutit obligatoirement au résultat.
+% ------------------------------------------------------------------------------
+
+pgcd(X, X, X).
+
+pgcd(X, Y, Z) :-
+    X < Y,
+    YS is Y - X,
+    pgcd(X, YS, Z).
+
+pgcd(X, Y, Z) :-
+    Y < X,
+    pgcd(Y, X, Z).
+
+/** <examples>
+
+?- pgcd(12, 16, X).
+X = 4 ;
+false.
+
+?- pgcd(12, 20, X).
+X = 4 ;
+false.
+
+?- pgcd(27, 16, X).
+X = 1 ;
+false.
+
+*/
+```
+
+
 
 
 
