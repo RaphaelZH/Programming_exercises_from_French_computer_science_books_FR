@@ -217,14 +217,15 @@ Au commencement était Ginungap ou le chaos, au nord était l’amas de glaces N
 
 Compléter éventuellement en introduisant les Valkyries, Hilda, Mista, Rota, des Elfes, Trolls et autres Nornes, puis faire l’arbre généalogique, et définir des relations diverses, telles qu’oncle, grand-oncle, cousin, etc.
 
+---
 
 ---
 
 ### 6. Rencontres
 
-Eve est une petite femme blonde qui désire rencontrer un homme, Irma est une brune mesurant 1m55 favorable à tout homme qui veut bien d’elle. Julie la rousse mesure 1m65 et cherche un homme plus grand qu’elle. Carmela est une blonde de 1m59 qui ne sait pas ce qu’elle veut.
+Eve est une petite femme blonde qui désire rencontrer un homme, Irma est une brune mesurant $1$m$55$ favorable à tout homme qui veut bien d’elle. Julie la rousse mesure $1$m$65$ et cherche un homme plus grand qu’elle. Carmela est une blonde de $1$m$59$ qui ne sait pas ce qu’elle veut.
 
-Luc fait 1m70, est très attiré par une rousse, mais ne sait plus son prénom. Max adore les petites femmes brunes. Marc mesure 1m90 et aimerait aussi rencontrer une brune, Hector cherche une petite blonde. En admettant que $petit$ signifie moins de 1m60, peut-on les aider ?
+Luc fait $1$m$70$, est très attiré par une rousse, mais ne sait plus son prénom. Max adore les petites femmes brunes. Marc mesure $1$m$90$ et aimerait aussi rencontrer une brune, Hector cherche une petite blonde. En admettant que $petit$ signifie moins de $1$m$60$, peut-on les aider ?
 
 ```Prolog
 femme(eve).
@@ -309,7 +310,36 @@ false.
 */
 ```
 
+### 7. Division entière
 
+On cherche le quotient entier et le reste de la division de $A$ par $B$.
+
+```Prolog
+divise(A, B, 0, A) :-
+    A < B.
+
+divise(A, A, 1, 0).
+
+divise(A, B, Q, R) :-
+    B < A,
+    AS is A - B,
+    divise(AS, B, QS, R),
+    Q is QS + 1.
+
+/** <examples>
+
+?- divise(23, 7, Q, R).
+Q = 3,
+R = 2 ;
+false.
+
+?- divise(58, 3, Q, R). 
+Q = 19,
+R = 1 ;
+false.
+
+*/
+```
 
 
 
