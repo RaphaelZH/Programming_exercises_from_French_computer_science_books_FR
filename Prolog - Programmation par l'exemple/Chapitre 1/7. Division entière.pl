@@ -12,32 +12,19 @@ divise(A, A, 1, 0).
 divise(A, B, Q, R) :-
     B < A,
     AS is A - B,
-    write(AS),
-    write(" = "),
-    write(A),
-    write(" - "),
-    write(AS),
-    nl,
     divise(AS, B, QS, R),
-    write(AS),
-    write(" = "),
-    write(B),
-    write(" * "),
-    write(QS),
-    write(" + "),
-    write(R),
-    nl,
-    Q is QS + 1,
-    write(Q),
-    write(" = "),
-    write(QS),
-    write(" + 1"),
-    nl.
-
-
+    Q is QS + 1.
 
 /** <examples>
 
+?- divise(23, 7, Q, R).
+Q = 3,
+R = 2 ;
+false.
 
+?- divise(58, 3, Q, R). 
+Q = 19,
+R = 1 ;
+false.
 
 */
