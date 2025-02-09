@@ -9,6 +9,7 @@ union, comme l'union des couples de r et de s.
 
 */
 
+% ------------------------------------------------------------------------------
 % La projection d’une relation à trois arguments sur les deux premiers est 
 % l’ensemble des couples (X, Y) tels qu’un triplet au moins vérifie la relation 
 % rel.

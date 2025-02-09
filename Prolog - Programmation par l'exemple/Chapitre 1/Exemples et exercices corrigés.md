@@ -186,6 +186,7 @@ Y = eau.
 Étant donnée une relation notée $rel$ à $3$ arguments, définir la relation $pr$ « projection » de $rel$ sur les $2$ premiers arguments, puis la « sélection » $sr$ des objets dont les deux premiers arguments vérifient une propriété $prop$. Si $r$ et $s$ sont deux relations à deux arguments, définir leur « jointure » $jrs$ comme l'ensemble des triplets $(x, y, z)$ vérifiant $r(x, y)$ et $s(x, z)$, enfin, leur union, comme l'union des couples de $r$ et de $s$.
 
 ```Prolog
+% ------------------------------------------------------------------------------
 % La projection d’une relation à trois arguments sur les deux premiers est 
 % l’ensemble des couples (X, Y) tels qu’un triplet au moins vérifie la relation 
 % rel.
@@ -223,9 +224,9 @@ Compléter éventuellement en introduisant les Valkyries, Hilda, Mista, Rota, de
 
 ### 6. Rencontres
 
-Eve est une petite femme blonde qui désire rencontrer un homme, Irma est une brune mesurant $1$ m $55$ favorable à tout homme qui veut bien d’elle. Julie la rousse mesure $1$ m $65$ et cherche un homme plus grand qu’elle. Carmela est une blonde de $1$ m $59$ qui ne sait pas ce qu’elle veut.
+Eve est une petite femme blonde qui désire rencontrer un homme, Irma est une brune mesurant $1m55$ favorable à tout homme qui veut bien d’elle. Julie la rousse mesure $1m65$ et cherche un homme plus grand qu’elle. Carmela est une blonde de $1m59$ qui ne sait pas ce qu’elle veut.
 
-Luc fait $1$ m $70$, est très attiré par une rousse, mais ne sait plus son prénom. Max adore les petites femmes brunes. Marc mesure $1$ m $90$ et aimerait aussi rencontrer une brune, Hector cherche une petite blonde. En admettant que $petit$ signifie moins de $1$ m $60$, peut-on les aider ?
+Luc fait $1m70$, est très attiré par une rousse, mais ne sait plus son prénom. Max adore les petites femmes brunes. Marc mesure $1m90$ et aimerait aussi rencontrer une brune, Hector cherche une petite blonde. En admettant que $petit$ signifie moins de $1m60$, peut-on les aider ?
 
 ```Prolog
 femme(eve).
