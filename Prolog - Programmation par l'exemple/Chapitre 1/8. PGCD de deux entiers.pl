@@ -40,3 +40,42 @@ X = 1 ;
 false.
 
 */
+
+
+
+
+
+
+divise(A, B, 0, A) :-
+    A < B.
+
+divise(A, A, 1, 0).
+
+divise(A, B, Q, R) :-
+    B < A,
+    AS is A - B,
+    divise(AS, B, QS, R),
+    Q is QS + 1.
+
+pgcd_2(X, X, X).
+
+pgcd_2(X, Y, Z) :-
+    X < Y,
+    pgcd_2(Y, X, Z).
+
+pgcd_2(X, Y, Z) :-
+    X > Y,
+    write(X),
+    nl,
+    write(Y),
+    nl,
+    write('======'),
+    nl,
+    XS is X div Y,
+    YS is X mod Y,
+    write(XS),
+    nl,
+    write(YS),
+    nl,
+    R \= 0,
+    divise(XS, YS, Z, R).
