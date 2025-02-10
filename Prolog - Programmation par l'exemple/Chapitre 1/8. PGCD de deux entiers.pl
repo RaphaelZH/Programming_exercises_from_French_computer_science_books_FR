@@ -55,5 +55,22 @@ pgcd_Euclide(X, Y, Z) :-
 
 pgcd_Euclide(X, Y, Z) :-
     X >= Y,
+    Y > 0,
     YS is X mod Y,
     pgcd_Euclide(Y, YS, Z).
+
+/** <examples>
+
+?- pgcd_Euclide(12, 16, X).
+X = 4 ;
+false.
+
+?- pgcd_Euclide(12, 20, X).
+X = 4 ;
+false.
+
+?- pgcd_Euclide(27, 16, X).
+X = 1 ;
+false.
+
+*/
