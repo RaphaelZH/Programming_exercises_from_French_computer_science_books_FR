@@ -22,7 +22,7 @@ Q = 3,
 R = 2 ;
 false.
 
-?- divise(58, 3, Q, R). 
+?- divise(58, 3, Q, R).
 Q = 19,
 R = 1 ;
 false.
