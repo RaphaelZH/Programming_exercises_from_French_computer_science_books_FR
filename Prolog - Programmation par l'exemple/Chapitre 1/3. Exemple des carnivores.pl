@@ -11,9 +11,22 @@ Qui consomme quoi ? Développer l'arbre de recherche.
 
 */
 
-% Remarque, la clause ci-dessous résume deux règles grâce au point-virgule.
+% ------------------------------------------------------------------------------
+% L’arbre de recherche de Prolog se parcourt dans le sens « racine-gauche-droite 
+% ».
+% 
+% Remarque, la clause animal(X) :- herbivore(X) ; carnivore(X). résume deux 
+% règles grâce au point-virgule, et on pourrait faire de même pour consomme.
+% ------------------------------------------------------------------------------
+
+% animal(X) :-
+%     herbivore(X).
+% 
+% animal(X) :-
+%     carnivore(X).
+
 animal(X) :-
-    herbivore(X);
+    herbivore(X) ;
     carnivore(X).
 
 herbivore(antilope).
@@ -36,8 +49,14 @@ mange(X, herbe) :-
 boit(X, eau) :-
     animal(X).
 
+% consomme(X, Y) :-
+%     mange(X, Y).
+% 
+% consomme(X, Y) :-
+%     boit(X, Y).
+
 consomme(X, Y) :-
-    mange(X, Y);
+    mange(X, Y) ;
     boit(X, Y).
 
 /** <examples>

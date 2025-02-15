@@ -13,6 +13,28 @@ Il sait que Max est sans argent et qu'Eve est très jalouse de Marie. Il est att
 Écrire le programme Prolog qui, à la question $suspect(X)$, renverra toutes les réponses possibles et représenter l'arbre de recherche de Prolog.
 
 ```Prolog
+% ------------------------------------------------------------------------------
+% Le programme Prolog ci-dessous est très simple.
+% 
+% On prend les phrases du texte dans l’ordre où elles viennent, tout en décidant 
+% de noms de prédicats les plus explicites possibles.
+% 
+% Seule, la première phrase peut présenter une difficulté, car elle doit être 
+% décomposée dans les faits d’une présence, d’un vol commis et d’une propriété 
+% de susceptibilité qu’un individu X soit voleur sur la personne d’une autre V.
+% 
+% La difficulté réside aussi souvent dans le nombre, l’ordre, mais surtout la 
+% signification des paramètres d’une relation.
+% 
+% Ainsi, la présence met en jeu un individu X en un lieu L un jour J et un vol 
+% attesté met en jeu également trois paramètres, la victime V, le lieu L et le 
+% jour J.
+% 
+% Naturellement, il est possible de nuancer et de compliquer à loisir un tel 
+% exercice, il y a l’objet du vol, le mobile, certes, ici, très simplifié et 
+% bien d’autres choses.
+% ------------------------------------------------------------------------------
+
 suspect(X) :-
     present(X, L, J),
     vol(L, J, V),
@@ -135,9 +157,22 @@ Qui consomme quoi ? Développer l'arbre de recherche.
 [[J. L. Laurière *Intelligence artificielle, Tomes I et II*, Eyrolles 1986, 1987]](../R%C3%A9f%C3%A9rences/2.%20Intelligence%20artificielle,%20Tomes%20I%20et%20II.pdf).
 
 ```Prolog
-% Remarque, la clause ci-dessous résume deux règles grâce au point-virgule.
+% ------------------------------------------------------------------------------
+% L’arbre de recherche de Prolog se parcourt dans le sens « racine-gauche-droite 
+% ».
+% 
+% Remarque, la clause animal(X) :- herbivore(X) ; carnivore(X). résume deux 
+% règles grâce au point-virgule, et on pourrait faire de même pour consomme.
+% ------------------------------------------------------------------------------
+
+% animal(X) :-
+%     herbivore(X).
+% 
+% animal(X) :-
+%     carnivore(X).
+
 animal(X) :-
-    herbivore(X);
+    herbivore(X) ;
     carnivore(X).
 
 herbivore(antilope).
@@ -160,8 +195,14 @@ mange(X, herbe) :-
 boit(X, eau) :-
     animal(X).
 
+% consomme(X, Y) :-
+%     mange(X, Y).
+% 
+% consomme(X, Y) :-
+%     boit(X, Y).
+
 consomme(X, Y) :-
-    mange(X, Y);
+    mange(X, Y) ;
     boit(X, Y).
 
 /** <examples>
