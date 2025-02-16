@@ -12,6 +12,17 @@ moins de 1m60, peut-on les aider ?
 
 */
 
+% ------------------------------------------------------------------------------
+% On prend les phrases, dans l’ordre où elles sont données, en prenant garde que 
+% taille est un prédicat à deux arguments et que, pour simplifier, le désir de 
+% chacun soit exprimé par une liste de conditions évaluables, par exemple pour 
+% les tailles.
+% 
+% À la fin, le prédicat possible est construit comme traduisant deux désirs 
+% compatibles, mais il faut éviter que la recherche de Prolog tourne en rond, 
+% simplement en précisant le sexe des arguments.
+% ------------------------------------------------------------------------------
+
 femme(eve).
 femme(irma).
 femme(julie).
@@ -70,9 +81,6 @@ voudrait(hector, F) :-
     petit(F),
     cheveux(F, blond).
 
-% Le prédicat « possible » est construit comme traduisant deux désirs 
-% compatibles, il faut éviter que la recherche de Prolog tourne en rond, 
-% simplement en précisant le sexe des arguments.
 possible(H, F) :-
     homme(H),
     voudrait(H, F),

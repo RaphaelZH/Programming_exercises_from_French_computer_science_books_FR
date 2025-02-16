@@ -231,6 +231,7 @@ Y = eau.
 % La projection d’une relation à trois arguments sur les deux premiers est 
 % l’ensemble des couples (X, Y) tels qu’un triplet au moins vérifie la relation 
 % rel.
+% 
 % C’est donc la définition mathématique aussi bien que celle utilisée en base de 
 % données.
 % ------------------------------------------------------------------------------
@@ -270,6 +271,17 @@ Eve est une petite femme blonde qui désire rencontrer un homme, Irma est une br
 Luc fait 1m70, est très attiré par une rousse, mais ne sait plus son prénom. Max adore les petites femmes brunes. Marc mesure 1m90 et aimerait aussi rencontrer une brune, Hector cherche une petite blonde. En admettant que $petit$ signifie moins de 1m60, peut-on les aider ?
 
 ```Prolog
+% ------------------------------------------------------------------------------
+% On prend les phrases, dans l’ordre où elles sont données, en prenant garde que 
+% taille est un prédicat à deux arguments et que, pour simplifier, le désir de 
+% chacun soit exprimé par une liste de conditions évaluables, par exemple pour 
+% les tailles.
+% 
+% À la fin, le prédicat possible est construit comme traduisant deux désirs 
+% compatibles, mais il faut éviter que la recherche de Prolog tourne en rond, 
+% simplement en précisant le sexe des arguments.
+% ------------------------------------------------------------------------------
+
 femme(eve).
 femme(irma).
 femme(julie).
@@ -328,9 +340,6 @@ voudrait(hector, F) :-
     petit(F),
     cheveux(F, blond).
 
-% Le prédicat « possible » est construit comme traduisant deux désirs 
-% compatibles, il faut éviter que la recherche de Prolog tourne en rond, 
-% simplement en précisant le sexe des arguments.
 possible(H, F) :-
     homme(H),
     voudrait(H, F),
