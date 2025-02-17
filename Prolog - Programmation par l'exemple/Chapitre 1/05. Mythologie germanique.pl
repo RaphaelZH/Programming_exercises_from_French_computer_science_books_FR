@@ -15,7 +15,7 @@ relations diverses, telles qu’oncle, grand-oncle, cousin, etc.
 */
 
 parent(P, E) :-
-    pere(P, E);
+    pere(P, E) ;
     mere(P, E).
 
 homme(H) :-
@@ -82,7 +82,7 @@ ancetre(A, D) :-
     write(")"),
     nl,
     nl,
-    !;
+    ! ;
 
     nonvar(A),
     

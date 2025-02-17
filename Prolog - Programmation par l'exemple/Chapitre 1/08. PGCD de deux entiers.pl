@@ -7,10 +7,10 @@ petit, jusqu’à obtenir deux entiers identiques.
 */
 
 % ------------------------------------------------------------------------------
-% Le PGCD de deux nombres identiques est lui-même, sinon, dans l’hypothèse où 
-% X < Y, c’est le même que celui du plus petit X avec la différence des deux, et 
-% la troisième clause renvoyant à ce cas.
-
+% Le PGCD de deux nombres identiques est lui-même, sinon, dans l’hypothèse où X 
+% < Y, c’est le même que celui du plus petit X avec la différence des deux, la 
+% troisième clause renvoyant à ce cas.
+% 
 % Ainsi, par soustractions successives, on peut montrer que cet algorithme 
 % aboutit obligatoirement au résultat.
 % ------------------------------------------------------------------------------
