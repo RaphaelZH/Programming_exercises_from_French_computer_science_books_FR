@@ -473,15 +473,14 @@ Faire une programmation de complexité linéaire pour le coefficient $C_{n}^p$. 
 
 ```Prolog
 % ------------------------------------------------------------------------------
-% La relation de Pascal (hors les bords du triangle de Pascal) C_{n}^{p} = C_{n 
-% - 1}^{p} + C_{n - 1}^{p - 1} donnerait lieu à un arbre de recherche 
+% La relation de Pascal (hors les bords du triangle de Pascal) 
+% C_n^p = C_(n - 1)^p + C_(n - 1)^(p - 1) donnerait lieu à un arbre de recherche 
 % exponentiel où la plupart des calculs sont refaits plusieurs fois, c’est 
 % pourquoi, pour donner un arbre de recherche réduit à une branche, il vaut 
-% mieux utiliser la relation de récurrence C_{n}^{p} = (n • C_{n - 1}^{p - 1}) / 
-% p.
+% mieux utiliser la relation de récurrence C_n^p = (n⋅C_(n - 1)^(p - 1)) / p.
 % 
 % On a donc dans l’ordre, pour ce calcul, à poser M = N – 1 et Q = P – 1, 
-% appeler le calcul de C_{M}^{Q} puis le multiplier par N et le diviser par P.
+% appeler le calcul de C_M^Q puis le multiplier par N et le diviser par P.
 % ------------------------------------------------------------------------------
 
 comb(_, 0, 1).
@@ -512,5 +511,15 @@ false.
 
 ### 10. Suite de Fibonacci
 
-Programmer de manière astucieuse pour ne pas refaire les mêmes calculs la suite $u_{0} = 0$, $u_{1} = u_{2} = 1$, $u_{n + 2} = u_{n + 1} + u_{n}$. L’arbre de recherche doit être réduit à une branche de $N$ + 1 nœuds pour l’appel de fibo(N, R). Par exemple $fibo(6, X).$ → $X$ = 8 avec 7 nœuds.
+Programmer de manière astucieuse pour ne pas refaire les mêmes calculs la suite $u_{0} = 0$, $u_{1} = u_{2} = 1$, $u_{n + 2} = u_{n + 1} + u_{n}$. L’arbre de recherche doit être réduit à une branche de $N + 1$ nœuds pour l’appel de fibo(N, R). Par exemple $fibo(6, X). \rightarrow X = 8$ avec 7 nœuds.
+
+```Prolog
+
+```
+
+
+
+
+
+
 

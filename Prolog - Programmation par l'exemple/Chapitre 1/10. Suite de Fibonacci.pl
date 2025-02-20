@@ -1,22 +1,15 @@
 /* 10. Suite de Fibonacci
 
+Programmer de manière astucieuse pour ne pas refaire les mêmes calculs la suite 
+u_0 = 0, u_1 = u_2 = 1, u_(n + 2) = u_(n + 1) + u_n. L’arbre de recherche doit 
+être réduit à une branche de N + 1 nœuds pour l’appel de fibo(N, R). Par exemple 
+fibo(6, X). → X = 8 avec 7 nœuds.
+
 */
 
 /*
 
-fib(0, 0).
 
-fib(1, 1).
-
-fib(X, Y) :-
-    X > 1,
-    XS1 is X - 1,
-    XS2 is X - 2,
-    fib(XS1, YS1),
-    fib(XS2, YS2),
-    Y is YS1 + YS2.
-    
-*/
 
 /*
 
